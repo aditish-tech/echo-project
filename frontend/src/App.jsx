@@ -41,12 +41,12 @@ export default function App() {
       }
 
       try {
-        const response = await fetch('/api/auth/login', {
+        const response = await fetch('https://echo-project-ho9e.onrender.com/api/auth/login', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
         });
-        
+
         // Wait, standard endpoint to check auth is usually /api/auth/me or similar,
         // let's make the signup/login endpoints return user info,
         // and we can fetch user profile. Let's make an endpoint in auth.js or reuse goal check,
@@ -56,7 +56,7 @@ export default function App() {
         // Wait, let's write it in App.jsx that fetches /api/auth/me. I will also make sure to add it to backend routes,
         // or we can fetch goal info to get user details! GET /api/goal is not defined but we can just use GET /api/auth/me.
         // Let's call /api/auth/me.
-        const res = await fetch('/api/auth/me', {
+        const res = await fetch('https://echo-project-ho9e.onrender.com/api/auth/me', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -125,7 +125,7 @@ export default function App() {
     <Router>
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Navbar token={token} user={user} onLogout={handleLogout} />
-        
+
         <main style={{ flex: '1', display: 'flex', flexDirection: 'column', position: 'relative' }}>
           <div className="aurora-bg"></div>
           <Routes>
@@ -135,73 +135,73 @@ export default function App() {
             <Route path="/our-story" element={<OurStory />} />
             <Route path="/about" element={<Navigate to="/our-story" replace />} />
             <Route path="/contact" element={<Contact />} />
-            <Route 
-              path="/login" 
-              element={token ? <Navigate to="/dashboard" replace /> : <Login onLogin={handleLogin} />} 
+            <Route
+              path="/login"
+              element={token ? <Navigate to="/dashboard" replace /> : <Login onLogin={handleLogin} />}
             />
-            <Route 
-              path="/signup" 
-              element={token ? <Navigate to="/onboarding" replace /> : <Signup onLogin={handleLogin} />} 
+            <Route
+              path="/signup"
+              element={token ? <Navigate to="/onboarding" replace /> : <Signup onLogin={handleLogin} />}
             />
 
             {/* Protected Routes */}
-            <Route 
-              path="/onboarding" 
+            <Route
+              path="/onboarding"
               element={
                 <ProtectedRoute requireGoal={false}>
                   <Onboarding token={token} user={user} onUpdateUser={handleUpdateUser} />
                 </ProtectedRoute>
-              } 
+              }
             />
-            <Route 
-              path="/dashboard" 
+            <Route
+              path="/dashboard"
               element={
                 <ProtectedRoute>
                   <Dashboard token={token} user={user} />
                 </ProtectedRoute>
-              } 
+              }
             />
-            <Route 
-              path="/journal" 
+            <Route
+              path="/journal"
               element={
                 <ProtectedRoute>
                   <Journal token={token} user={user} />
                 </ProtectedRoute>
-              } 
+              }
             />
-            <Route 
-              path="/letters" 
+            <Route
+              path="/letters"
               element={
                 <ProtectedRoute>
                   <Letters token={token} user={user} />
                 </ProtectedRoute>
-              } 
+              }
             />
-            <Route 
-              path="/schedule" 
+            <Route
+              path="/schedule"
               element={
                 <ProtectedRoute>
                   <Schedule token={token} user={user} />
                 </ProtectedRoute>
-              } 
+              }
             />
-            <Route 
-              path="/progress" 
+            <Route
+              path="/progress"
               element={
                 <ProtectedRoute>
                   <Progress token={token} user={user} />
                 </ProtectedRoute>
-              } 
+              }
             />
-            <Route 
-              path="/routine" 
+            <Route
+              path="/routine"
               element={
                 <ProtectedRoute>
                   <Routine token={token} user={user} />
                 </ProtectedRoute>
-              } 
+              }
             />
-            
+
             {/* Fallback */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
