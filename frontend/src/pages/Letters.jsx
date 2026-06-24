@@ -16,13 +16,13 @@ export default function Letters({ token, user }) {
     setError('');
     try {
       // Fetch letters
-      const res = await fetch('/api/letter', {
+      const res = await fetch('https://echo-backend-1jn4.onrender.com/api/letter', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const letterData = await res.json();
 
       // Fetch journal count to validate if they can generate
-      const journalRes = await fetch('/api/journal', {
+      const journalRes = await fetch('https://echo-backend-1jn4.onrender.com/api/journal', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const journalData = await journalRes.json();
@@ -50,7 +50,7 @@ export default function Letters({ token, user }) {
     setError('');
     setSuccessMsg('');
     try {
-      const res = await fetch('/api/letter', {
+      const res = await fetch('https://echo-backend-1jn4.onrender.com/api/letter', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

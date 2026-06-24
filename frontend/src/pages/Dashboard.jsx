@@ -16,19 +16,19 @@ export default function Dashboard({ token, user }) {
       setError('');
       try {
         // Fetch Journals
-        const journalRes = await fetch('/api/journal', {
+        const journalRes = await fetch('https://echo-backend-1jn4.onrender.com/api/journal', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const journalData = await journalRes.json();
 
         // Fetch Letters
-        const letterRes = await fetch('/api/letter', {
+        const letterRes = await fetch('https://echo-backend-1jn4.onrender.com/api/letter', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const letterData = await letterRes.json();
 
         // Fetch Routine
-        const routineRes = await fetch('/api/routine', {
+        const routineRes = await fetch('https://echo-backend-1jn4.onrender.com/api/routine', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const routineData = await routineRes.json();

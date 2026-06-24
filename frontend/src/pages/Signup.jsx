@@ -23,7 +23,7 @@ export default function Signup({ onLogin }) {
     }
 
     try {
-      const response = await fetch('/api/auth/signup', {
+      const response = await fetch('https://echo-backend-1jn4.onrender.com/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

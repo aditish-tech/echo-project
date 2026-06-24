@@ -41,7 +41,7 @@ export default function App() {
       }
 
       try {
-        const response = await fetch('https://echo-project-ho9e.onrender.com/api/auth/login', {
+        const response = await fetch('https://echo-backend-1jn4.onrender.com/api/auth/login', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -56,7 +56,7 @@ export default function App() {
         // Wait, let's write it in App.jsx that fetches /api/auth/me. I will also make sure to add it to backend routes,
         // or we can fetch goal info to get user details! GET /api/goal is not defined but we can just use GET /api/auth/me.
         // Let's call /api/auth/me.
-        const res = await fetch('https://echo-project-ho9e.onrender.com/api/auth/me', {
+        const res = await fetch('https://echo-backend-1jn4.onrender.com/api/auth/me', {
           headers: {
             'Authorization': `Bearer ${token}`
           }

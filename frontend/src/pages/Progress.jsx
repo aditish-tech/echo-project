@@ -14,12 +14,12 @@ export default function Progress({ token, user }) {
       setLoading(true);
       setError('');
       try {
-        const journalRes = await fetch('/api/journal', {
+        const journalRes = await fetch('https://echo-backend-1jn4.onrender.com/api/journal', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const journalData = await journalRes.json();
 
-        const letterRes = await fetch('/api/letter', {
+        const letterRes = await fetch('https://echo-backend-1jn4.onrender.com/api/letter', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         const letterData = await letterRes.json();

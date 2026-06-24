@@ -16,7 +16,7 @@ export default function Login({ onLogin }) {
     setError('');
 
     try {
-      const response = await fetch('/api/auth/login', {
+      const response = await fetch('https://echo-backend-1jn4.onrender.com/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

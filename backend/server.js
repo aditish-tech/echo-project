@@ -33,7 +33,11 @@ if (process.env.MONGODB_URI === 'your_mongodb_connection_string_here') {
 const app = express();
 
 // 2. Middleware
-app.use(cors());
+const corsOptions = {
+  origin: ["https://echo-project-1-o9yf.onrender.com", "http://localhost:3000"],
+  credentials: true
+}
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // 3. Connect Database

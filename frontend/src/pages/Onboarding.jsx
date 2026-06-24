@@ -13,7 +13,7 @@ export default function Onboarding({ token, user, onUpdateUser }) {
     setError('');
 
     try {
-      const response = await fetch('/api/goal', {
+      const response = await fetch('https://echo-backend-1jn4.onrender.com/api/goal', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

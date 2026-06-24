@@ -18,7 +18,7 @@ export default function Journal({ token, user }) {
       setLoading(true);
       setError('');
       try {
-        const response = await fetch('/api/journal', {
+        const response = await fetch('https://echo-backend-1jn4.onrender.com/api/journal', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -52,7 +52,7 @@ export default function Journal({ token, user }) {
     setError('');
 
     try {
-      const response = await fetch('/api/journal', {
+      const response = await fetch('https://echo-backend-1jn4.onrender.com/api/journal', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

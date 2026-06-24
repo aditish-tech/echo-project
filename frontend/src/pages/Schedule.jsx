@@ -12,7 +12,7 @@ export default function Schedule({ token, user }) {
     setLoading(true);
     setError('');
     try {
-      const response = await fetch('/api/schedule', {
+      const response = await fetch('https://echo-backend-1jn4.onrender.com/api/schedule', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -39,7 +39,7 @@ export default function Schedule({ token, user }) {
   const handleToggle = async (actionId) => {
     setTogglingId(actionId);
     try {
-      const response = await fetch(`/api/schedule/${actionId}`, {
+      const response = await fetch(`https://echo-backend-1jn4.onrender.com/api/schedule/${actionId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`

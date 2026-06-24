@@ -20,7 +20,7 @@ export default function Routine({ token, user }) {
 
   const fetchRoutine = async () => {
     try {
-      const res = await fetch('/api/routine', {
+      const res = await fetch('https://echo-backend-1jn4.onrender.com/api/routine', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       const data = await res.json();
@@ -44,7 +44,7 @@ export default function Routine({ token, user }) {
 
   const handleToggleComplete = async (item) => {
     try {
-      const res = await fetch(`/api/routine/${item._id}`, {
+      const res = await fetch(`https://echo-backend-1jn4.onrender.com/api/routine/${item._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export default function Routine({ token, user }) {
     if (!taskText) return;
 
     try {
-      const res = await fetch('/api/routine', {
+      const res = await fetch('https://echo-backend-1jn4.onrender.com/api/routine', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -95,7 +95,7 @@ export default function Routine({ token, user }) {
 
   const handleDeleteTask = async (id, block) => {
     try {
-      const res = await fetch(`/api/routine/${id}`, {
+      const res = await fetch(`https://echo-backend-1jn4.onrender.com/api/routine/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -125,7 +125,7 @@ export default function Routine({ token, user }) {
     if (!text) return;
 
     try {
-      const res = await fetch(`/api/routine/${item._id}`, {
+      const res = await fetch(`https://echo-backend-1jn4.onrender.com/api/routine/${item._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
